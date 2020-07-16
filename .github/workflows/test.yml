@@ -4,19 +4,6 @@ on:
   push:
     branches: 
       - '**'
-    tags-ignore:
-      - '*.*'
-    paths:
-      - 'src/**'
-      - '.github/workflows/test.yml'
-  pull_request:
-    branches: 
-      - '**'
-    tags-ignore:
-      - '*.*'
-    paths:
-      - 'src/**'
-      - '.github/workflows/test.yml'
 
 jobs:
   windows:
