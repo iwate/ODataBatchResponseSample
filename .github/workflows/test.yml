@@ -15,7 +15,6 @@ jobs:
       with:
         dotnet-version: 3.1.x
     - name: Run all tests
-      working-directory: ./src/
       run: dotnet test ODataBatchResponseSample.sln
   linux:
     runs-on: ubuntu-latest
@@ -26,5 +25,4 @@ jobs:
       with:
         dotnet-version: 3.1.x
     - name: Run all tests
-      working-directory: ./src/
       run: dotnet test ODataBatchResponseSample.sln
