@@ -1,0 +1,43 @@
+name: test
+
+on: 
+  push:
+    branches: 
+      - '**'
+    tags-ignore:
+      - '*.*'
+    paths:
+      - 'src/**'
+      - '.github/workflows/test.yml'
+  pull_request:
+    branches: 
+      - '**'
+    tags-ignore:
+      - '*.*'
+    paths:
+      - 'src/**'
+      - '.github/workflows/test.yml'
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+    - name: Run all tests
+      working-directory: ./src/
+      run: dotnet test ODataBatchResponseSample.sln
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+    - name: Run all tests
+      working-directory: ./src/
+      run: dotnet test ODataBatchResponseSample.sln
